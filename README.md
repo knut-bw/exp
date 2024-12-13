@@ -1,5 +1,6 @@
 [Complete]
 1. 安裝alloy & beyla
+
 [Pending]
 1. 安裝 jaeger & grafana & tempo
 2. 隨便找個微服務串接資料
