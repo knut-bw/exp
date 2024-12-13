@@ -1,0 +1,15 @@
+alloy:
+  configMap:
+    content: |-
+      // Write your Alloy config here:
+      prometheus.exporter.self "prometheus_default" {
+      }
+      prometheus.scrape "prometheus_scrape" {
+        targets    = prometheus.exporter.self.prometheus_default.targets
+        forward_to = [otelcol.receiver.prometheus.OTEL.receiver]
+      }
+      prometheus.remote_write "default" {
+        endpoint {
+          url = "http://mimir:9009/api/v1/push"
+        }
+      }
